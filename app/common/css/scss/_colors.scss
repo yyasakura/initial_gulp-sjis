@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+//common
+$black: #000000;
+$white: #FFFFFF;
+
+
+//background
+$bg_base: #FFFFFF;
+
+
+//text
+$txt_base: #333333;
+$txt_base_thin: #666666;
+
+
+//border
+$brd_base: #CCCCCC;
+
+
+//link
+$link_default_txt: #0046BF;
+
+
+//social
+$contents_social_tw:               #55acee;
+$contents_social_fb:               #3b5998;
+
+
+//contents color
+$contents_color_error:             #F63557;
+$contents_color_main:              #FD5155;
+$contents_color_sub:               #EEEEEE;
+$contents_color_sub_darken:        darken($contents_color_sub, 6.5%);
+$contents_color_sub_b:             #E9F0DE;
+
+$contents_color_btn_hover:         #F8F8F8;

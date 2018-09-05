@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+$pc_base_w: 1120px;
+$sp_base_w: 640px;
+
+@import "_colors";
+@import "_mixin";
+@import "_reset";
+@import "_layout";
+@import "_module";
+@import "_page";
+@import "_javascript";

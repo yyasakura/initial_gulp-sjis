@@ -1,0 +1,41 @@
+/**
+ * Module
+ */
+
+/* Media Hidden */
+@include mq-pc {
+	.sp-only {
+		display: none;
+	}
+}
+@include mq-sp {
+	.pc-only {
+		display: none;
+	}
+}
+
+/* font size */
+.fs-x {
+	@include font_size(18,true);
+	@include mq-sp {
+		@include font_size(16,true);
+	}
+}
+.fs-l {
+	@include font_size(16,true);
+	@include mq-sp {
+		@include font_size(12,true);
+	}
+}
+.fs-m {
+	@include font_size(14,true);
+	@include mq-sp {
+		@include font_size(11,true);
+	}
+}
+.fs-s {
+	@include font_size(12,true);
+	@include mq-sp {
+		@include font_size(10,true);
+	}
+}

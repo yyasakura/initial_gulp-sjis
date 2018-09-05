@@ -1,0 +1,88 @@
+/**
+ * Reset
+ */
+
+/* base */
+html {
+	height: 100%;
+	font-size: 62.5%;
+	overflow-y: scroll;
+}
+body {
+	width: 100%;
+	min-width: $pc_base_w + px;
+	min-height: 100%;
+	margin: 0 auto 0 auto;
+	padding: 0;
+	line-height: 1.0;
+	background: $bg_base;
+	color: $txt_base;
+	-webkit-text-size-adjust: 100%;
+	@include font_set_default;
+	@include font_size(16);
+	@include mq-sp {
+		& {
+			min-width: 320px;
+			@include font_size(12);
+		}
+	}
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+}
+div, p, dl, dt, dd, ul, ol, li, th, td,
+form, fieldset, input, button, textarea,
+pre, blockquote, address {
+	margin: 0;
+	padding: 0;
+}
+ol, ul { list-style-type: none; }
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0;
+}
+caption { text-align: left; }
+fieldset { border: 0; }
+button, input, textarea, label {
+	line-height: 1;
+	vertical-align: middle;
+	cursor: pointer;
+}
+button, input[type=text], textarea {
+	@include font_set_default;
+}
+input[type=text], textarea { cursor: text; }
+img {
+	max-width: 100%;
+	height: auto;
+	border: 0;
+	vertical-align: top;
+}
+address { font-style: normal; }
+small { font-size: 100%; }
+header, footer, nav, main, article, aside, section, figure, figcaption, dialog { display: block; }
+*, *:after, *:before { box-sizing: border-box; }
+
+/* link, button */
+a {
+	text-decoration: none;
+	color: $link_default_txt;
+	transition: opacity 0.25s linear;
+	&:hover,
+	&:focus,
+	&:active {
+		opacity: 0.70;
+		text-decoration: underline;
+	}
+}
+button {
+	transition: opacity 0.25s linear;
+	&:hover,
+	&:focus,
+	&:active {
+		opacity: 0.70;
+	}
+}

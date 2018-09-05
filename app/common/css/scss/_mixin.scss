@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin inner($width: $pc_base_w) {
+	width: 100%;
+	max-width: $width;
+	margin: 0 auto;
+}
+
+@mixin font_size($val, $important: false) {
+	@if $important {
+		font-size: #{$val/10}rem!important;
+	} @else {
+		font-size: #{$val/10}rem;
+	}
+}
+
+@mixin font_set_default {
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", sans-serif;
+}
+
+@mixin font_set_decimal {
+	font-family: sans-serif;
+}
+
+@mixin font_set_english {
+	font-family: sans-serif;
+}
+
+@mixin alpha($val) {
+	opacity: $val/100;
+	filter: alpha(opacity=#{$val});
+}
+
+// Hover
+@mixin hover {
+	&:hover,
+	&:focus,
+	&:active {
+		@content;
+	}
+}
+
+// Media Queries
+$media_break_point: $sp_base_w;
+@mixin mq-pc {
+	@media only screen and (min-width: $media_break_point + 1) {
+		@content;
+	}
+}
+@mixin mq-sp {
+	@media only screen and (max-width: $media_break_point) {
+		@content;
+	}
+}
+
+// Calc
+@function to-fixed ($number, $digits: 0, $round: 'round') {
+	$n: 1;
+	// $number must be a number
+	@if type-of($number) != number {
+		@warn '#{$number} is not a number.';
+		@return $number;
+	}
+	// $digits must be a unitless number
+	@if type-of($digits) != number {
+		@warn '#{$digits} is not a number.';
+		@return $number;
+	} @else if not unitless($digits) {
+		@warn '#{$digits} has a unit.';
+		@return $number;
+	}
+	@for $i from 1 through $digits {
+		$n: $n * 10;
+	}
+	@if $round == 'round' {
+		@return round($number * $n) / $n;
+	} @else if $round == 'ceil' {
+		@return ceil($number * $n) / $n;
+	} @else if $round == 'floor' {
+		@return floor($number * $n) / $n;
+	} @else {
+		@warn '#{$round} is undefined keyword.';
+		@return $number;
+	}
+}
+
+// Round (四捨五入)
+@function round-decimal ($number, $digits: 1) {
+	@return to-fixed($number, $digits, 'round');
+}
+// Ceil (切り上げ)
+@function ceil-decimal ($number, $digits: 1) {
+	@return to-fixed($number, $digits, 'ceil');
+}
+// Floor (切り捨て)
+@function floor-decimal ($number, $digits: 1) {
+	@return to-fixed($number, $digits, 'floor');
+}
+@function px2per($size: 0, $base: $pc_base_w, $per: 100%){
+	@return round-decimal($size/$base*$per);
+}
